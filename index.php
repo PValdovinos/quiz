@@ -21,7 +21,7 @@ $f3->route('GET /', function(){
 });
 
 // Define order route
-$f3->route('GET /survey', function($f3){
+$f3->route('GET|POST /survey', function($f3){
 
     // echo '<h1>Order Page</h1>';
 
@@ -31,21 +31,16 @@ $f3->route('GET /survey', function($f3){
 
         // Get the data
         $name = $_POST['name'];
-        $answer = $_POST['answer'];
+        $answers = $_POST['answers'];
 
-        // Validate the data
-        if(!empty('name'))
-        {
-            // Data is invalid
-            echo "Please write your name";
 
             // Data is valid
             $f3->set('SESSION.name', $name);
 
-            $f3->set('SESSION.answer', $answer);
+            $f3->set('SESSION.answers', $answers);
 
             $f3->reroute('summary');
-        }
+
     }
 
     //render a view page
@@ -56,7 +51,7 @@ $f3->route('GET /survey', function($f3){
 $f3->route('GET|POST /summary', function($f3){
 
     $view = new Template();
-    echo $view->render('views/order-summary.html');
+    echo $view->render('views/summary.html');
 });
 
 // Run Fat-Free
