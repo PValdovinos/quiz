@@ -28,19 +28,18 @@ $f3->route('GET|POST /survey', function($f3){
     // Check if the form has been posted
     if($_SERVER['REQUEST_METHOD'] == 'POST')
     {
-
         // Get the data
         $name = $_POST['name'];
         $answers = $_POST['answers'];
 
+        // Convert array of answers into a string
+        $answersString = implode(", ", $answers);
 
-            // Data is valid
-            $f3->set('SESSION.name', $name);
+        // Data is valid
+        $f3->set('SESSION.name', $name);
+        $f3->set('SESSION.answers', $answersString);
 
-            $f3->set('SESSION.answers', $answers);
-
-            $f3->reroute('summary');
-
+        $f3->reroute('summary');
     }
 
     //render a view page
@@ -50,7 +49,6 @@ $f3->route('GET|POST /survey', function($f3){
 
 $f3->route('GET /summary', function($f3){
 
-    var_dump ($f3->get('SESSION'));
     $view = new Template();
     echo $view->render('views/summary.html');
 });

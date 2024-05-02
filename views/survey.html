@@ -1,38 +1,25 @@
-<include href="views/header.html"></include>
-
-<body>
-
-<div class="container">
-    <h1>My Survey</h1>
-
-    <!-- get name -->
+<!-- Adjust your form to include name and checkbox inputs -->
+<form action="#" method="post" class="form-horizontal">
     <div class="form-group">
         <label for="name" class="col-sm-4 control-label">Name</label>
-        <div class="col-sm-4"><input class="form-control" type="text"
-                                     name="name" id="name" ></div>
+        <div class="col-sm-4"><input class="form-control" type="text" name="name" id="name"></div>
     </div>
 
-    <form action="#" method="post" class="form-horizontal">
+    <br>
 
-        <br>
-
-        <!-- get meal -->
-        <div class="form-group">
-            <label class="col-sm-4 control-label">Check all that apply:</label>
-            <div class="col-sm-4">
-                <label><input type="checkbox" name="answer" value="easy">This quiz is easy!</label><br>
-                <label><input type="checkbox" name="answer" value="medium">This quiz is somewhat difficult</label><br>
-                <label><input type="checkbox" name="answer" value="hard">Why... :(</label><br>
-            </div>
+    <!-- get meal -->
+    <div class="form-group">
+        <label class="col-sm-4 control-label">Check all that apply:</label>
+        <div class="col-sm-4">
+            <label><input type="checkbox" name="answers[]" value="This quiz is easy!">This quiz is easy!</label><br>
+            <label><input type="checkbox" name="answers[]" value="This quiz is somewhat difficult">This quiz is somewhat difficult</label><br>
+            <label><input type="checkbox" name="answers[]" value="Why... :(">Why... :(</label><br>
         </div>
-        <br>
+    </div>
+    <br>
 
-        <!-- submit button -->
-        <div class="col-xs-3 ">
-            <button class="btn btn-primary" type="submit">Next</button>
-        </div>
-    </form>
-
-</div>
-</body>
-</html>
+    <!-- submit button -->
+    <div class="col-xs-3 ">
+        <button class="btn btn-primary" type="submit">Next</button>
+    </div>
+</form>
