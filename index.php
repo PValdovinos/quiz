@@ -3,7 +3,7 @@
 
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
-// 328/diner/index.php
+// 328/quiz/index.php
 // This is my CONTROLLER
 
 // Turn on error reporting
@@ -21,9 +21,9 @@ $f3->route('GET /', function(){
 });
 
 // Define order route
-$f3->route('GET|POST /survey', function($f3){
+$f3->route('GET /survey', function($f3){
 
-    //echo '<h1>Order Page</h1>';
+    // echo '<h1>Order Page</h1>';
 
     // Check if the form has been posted
     if($_SERVER['REQUEST_METHOD'] == 'POST')
